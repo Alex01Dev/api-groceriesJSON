@@ -55,7 +55,7 @@ app.get('/getAll', (req, res) => {
 });
 
 
-app.get('/deleteOne/:matricula', (req, res) => {
+app.delete('/deleteOne/:matricula', (req, res) => {
     const matricula = parseInt(req.params.matricula);
     const alumno = alumnos.find(ele => ele.matricula === matricula); 
     const index = alumnos.indexOf(alumno); 
