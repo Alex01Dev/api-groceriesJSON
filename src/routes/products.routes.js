@@ -3,14 +3,14 @@ import {getAll, getOne, insertOne, updateOne, deleteOne} from "../controllers/pr
 
 const router = Router();
 
-router.get('/getAll', getAll);
+router.get('/', getAll);
 
-router.get('/getOne/:barcode', getOne);
+router.get('/:barcode', getOne);
 
-router.post('/insertOne', insertOne);
+router.post('/', insertOne);
 
-router.put('/updateOne/:barcode', updateOne);
+router.put('/:barcode', updateOne);
 
-router.delete('/deleteOne/:barcode', deleteOne);
+router.delete('/:barcode', deleteOne);
 
 export default router;

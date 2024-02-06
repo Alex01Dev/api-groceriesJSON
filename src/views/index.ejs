@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>Tienda de Abarrotes</title>
+    <style>
+        body {
+            background-color: #0f3b36;
+            color: white;
+            font-size: 20px;
+
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <ul>
+        <% products.forEach((product)=>{ %>
+            <li> <%= product.description %></li>
+        <% }) %>
+    </ul> -->
+
+    <div data-role="page">
+        <div data-role="header">
+            <h1>Aborrotes PHP</h1>
+            <div data-role="footer">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#" data-icon="home">Inicio</a></li>
+                        <li><a href="#" data-icon="eye" class="ui-btn-active">Productos</a></li>
+                        <li><a href="#" data-icon="user">Empleados</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div data-role="content">
+            <form action="">
+                <input type="text" name="barcode" id="txt_barcode" placeholder="Codigo de Barras">
+
+                <input type="text" name="barcode" id="txt_description" placeholder="Descripcion">
+
+                <input type="text" name="barcode" id="txt_brand" placeholder="Marca">
+
+                <input type="text" name="barcode" id="txt_cost" placeholder="Precio de Compra">
+
+                <input type="text" name="barcode" id="txt_price" placeholder="Precio de Venta">
+
+                <input type="number" name="barcode" id="txt_stock" placeholder="Existencias">
+
+                <input type="text" name="barcode" id="txt_cost" placeholder="Codigo de Barras">
+            
+                <input type="date" data-role="date" data-inline="true">
+            </form>
+
+        </div>
+        <div data-role="footer">
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>

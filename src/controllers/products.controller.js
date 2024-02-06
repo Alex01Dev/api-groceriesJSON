@@ -1,14 +1,13 @@
 import productDAO from "../dao/products.dao.js";
 
-export const getAll = (req,res) =>{
-
+export const getAll = (req, res) => {
     productDAO.getAll()
-    .then(result=> res.json(result))
-    .catch(err=>res.json({
-        status: "Server Unavailable"
-    }));
+        .then(products => res.render('../src/views/index',{ products }))
+        .catch(err => res.json({
+            status: "Server Unavailable"
+        }));
 }
-
+    
 export const getOne = (req, res) => {
     const barcode = req.params.barcode;
     productDAO.getOne(barcode)

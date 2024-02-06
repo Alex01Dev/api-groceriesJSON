@@ -4,8 +4,8 @@ const productDAO = {};
 
 productDAO.getAll = async () => {
 
-    const products = await Product.find();
-    return products;
+    const Products = await Product.find();
+    return Products;
 
 }
 

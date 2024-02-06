@@ -21,4 +21,4 @@ const productSchema = new Schema ({
     timestamps: true
 });
 
-export default model('product', productSchema);//('nombre','nombredelesquema')
+export default model('products', productSchema);//('nombre','nombredelesquema')
