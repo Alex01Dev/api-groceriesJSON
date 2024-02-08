@@ -11,13 +11,17 @@
     <style>
         body {
             background-color: #0f3b36;
-            color: white;
-            font-size: 20px;
-
         }
 
         h1 {
             text-align: center;
+            color: #ffffff;
+        }
+
+        .title {
+            padding: 2px;
+            background-color: rgba(24, 96, 109, 0.466);
+
         }
     </style>
 </head>
@@ -31,7 +35,9 @@
 
     <div data-role="page">
         <div data-role="header">
-            <h1>Aborrotes PHP</h1>
+            <div class="title">
+                <h1>Aborrotes PHP</h1>
+            </div>
             <div data-role="footer">
                 <div data-role="navbar">
                     <ul>
@@ -43,22 +49,28 @@
             </div>
         </div>
         <div data-role="content">
-            <form action="">
+            <form action="/api/products" method="POST">
                 <input type="text" name="barcode" id="txt_barcode" placeholder="Codigo de Barras">
 
-                <input type="text" name="barcode" id="txt_description" placeholder="Descripcion">
+                <input type="text" name="description" id="txt_description" placeholder="Descripcion">
 
-                <input type="text" name="barcode" id="txt_brand" placeholder="Marca">
+                <input type="text" name="brand" id="txt_brand" placeholder="Marca">
 
-                <input type="text" name="barcode" id="txt_cost" placeholder="Precio de Compra">
+                <input type="text" name="cost" id="txt_cost" placeholder="Precio de Compra">
 
-                <input type="text" name="barcode" id="txt_price" placeholder="Precio de Venta">
+                <input type="text" name="price" id="txt_price" placeholder="Precio de Venta">
 
-                <input type="number" name="barcode" id="txt_stock" placeholder="Existencias">
+                <input type="number" name="stock" id="txt_stock" placeholder="Existencias">
 
-                <input type="text" name="barcode" id="txt_cost" placeholder="Codigo de Barras">
-            
                 <input type="date" data-role="date" data-inline="true">
+                
+                <label for="flip-6">Activo</label>
+                <select name="status" id="flip-6" data-role="slider" data-mini="true">
+                    <option value="0">Off</option>
+                    <option value="1">On</option>
+                </select>
+
+                <button type="submit" id="submit-6" class="ui-shadow ui-btn ui-corner-all ui-mini">Guardar</button>
             </form>
 
         </div>

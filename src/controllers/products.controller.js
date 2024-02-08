@@ -22,9 +22,7 @@ export const getOne = (req, res) => {
 
 export const insertOne = (req, res) => {
     productDAO.insertOne(req.body)
-        .then(result => {
-            res.json(!result ? { status: 'No se guardo el producto' } : { estatus: 'Producto insertado', product: result });
-        })
+        .then(result => res.redirect('/api/products'))
         .catch(err => {
             console.error(err);
             res.status(500).json({ status: 'Error en el servidor' });
