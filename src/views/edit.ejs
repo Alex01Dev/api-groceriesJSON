@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <title>Abarratoes PHP</title>
+</head>
+<body>
+    <h1>Abarrotes PHP</h1>
+      <div data-role="page">
+            <div data-role="header">
+                <div data-role="navbar">
+                    <ul>
+                    <li><a href="#" data-icon="heart">Inicio</a></li>
+                    <li><a href="#" data-icon="tag" class="ui-btn-active">Productos</a></li>
+                    <li><a href="#" data-icon="user" >Empleados</a></li>
+                    </ul>
+                    </div>
+            </div>
+            <div data-role="content">
+                <form action="/api/products/<%= product.barcode %>" method="PUT">
+                    <label for="txt_codigo_barras">Codigo de barras:</label>
+                    <input type="text" name="barcode" id="txt_codigo_barras" placeholder="Codigo de barras" value="<%= product.barcode %>">
+
+                    <label for="txt_descripcion">Descripcion:</label>
+                    <input type="text" name="description" id="txt_description" placeholder="Descripcion" value="<%= product.description %>">
+
+                    <label for="txt_marca">Marca:</label>
+                    <input type="text" name="brand" id="txt_brand" placeholder="Marca" value="<%= product.brand %>">
+
+                    <label for="txt_price">Precio:</label>
+                    <input type="text" name="price" id="txt_price" placeholder="Precio" value="<%= product.price %>">
+
+                    <label for="txt_cost">Costo:</label>
+                    <input type="text" name="cost" id="txt_cost" placeholder="Costo" value="<%= product.cost %>">
+
+                    <label for="txt_stock">Stock:</label>
+                    <input type="text" name="stock" id="txt_stock" placeholder="Stock" value="<%= product.stock %>">
+
+
+                    <label for="txt_expireDate">Fecha de expiracion:</label>
+                    <input type="date" name="expireDate" id="txt_expireDate" placeholder="Fecha de expiracion" value="<%= product.expireDate %>">
+
+                    <select name="status" id="flip-6" data-role="slider" data-mini="true">
+                        <option value="0" <%= product.status=0?"select": "" %> >Off</option>
+                        <option value="1" <%= product.status=1?"select": "" %> >On</option>
+                    </select>
+
+                    <button type="submit" id="submit-6" class="ui-shadow ui-btn ui-corner-all ui-mini">Guardar</button>   
+                </form>
+            </div>
+            <div data-role="footer">
+                <h5>Developend by Alex Amauri Marquez Canales</h5>
+            </div>
+      </div>
+</body>
+</html>

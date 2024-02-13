@@ -11,8 +11,10 @@ export const getAll = (req, res) => {
 export const getOne = (req, res) => {
     const barcode = req.params.barcode;
     productDAO.getOne(barcode)
-        .then(result => {
-            !result ? res.json({ message: "Product not found" }) : res.json(result);
+        .then(product => {
+            !product ? res.json({
+                 message: "Product not found" 
+                }) : res.render('../src/views/edit', {product});
         })
         .catch(err => res.json({
             status: "Server Unavailable"
@@ -30,14 +32,28 @@ export const insertOne = (req, res) => {
   };
 
 
-export const updateOne = (req, res) => {
-    productDAO.updateOne(req.params.barcode,req.body)
-    .then(result=>res.json({status: "Product Updated"}))
-    .catch(err=>res.json({status: "Server Unavaible"}));
-}
+  export const updateOne = (req, res) => {
+    productDao
+      .updateOne(req.params.barcode, req.body)
+      .then((product) => {
+        !product
+          ? res.console({
+              message: "product not found",
+            })
+          : res.redirect("/api/products/");
+      })
+      .catch((err) => res.console({ status: "Server unavaliable=/"}));
+  };
 
 export const deleteOne = (req, res) => {
-    productDAO.deleteOne(req.params.barcode)
-    .then(result=>res.json({status: "Boleto Borrado" }))
+    productDAO
+        .deleteOne(req.params.barcode)
+        .then((product) => {
+            !product
+                ? res.json({
+                    message: "product not found"
+                })
+            : res.redirect("/api/products/");
+        })
     .catch(err=>res.json({status: "Servidor no responde"}));
 }

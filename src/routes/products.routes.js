@@ -11,6 +11,6 @@ router.post('/', insertOne);
 
 router.put('/:barcode', updateOne);
 
-router.delete('/:barcode', deleteOne);
+router.get('/delete/:barcode', deleteOne);
 
 export default router;
