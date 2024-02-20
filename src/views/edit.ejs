@@ -21,7 +21,7 @@
                     </div>
             </div>
             <div data-role="content">
-                <form action="/<%= product.barcode %>" method="PUT">
+                <form action="/<%= product.barcode %>" method="POST">
                     <label for="txt_codigo_barras">Codigo de barras:</label>
                     <input type="text" name="barcode" id="txt_codigo_barras" placeholder="Codigo de barras" value="<%= product.barcode %>">
 
