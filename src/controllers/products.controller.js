@@ -2,7 +2,7 @@ import productDAO from "../dao/products.dao.js";
 
 export const getAll = (req, res) => {
     productDAO.getAll()
-        .then(products => res.render('../src/views/index',{ products }))
+        .then(products => res.json({ products }))
         .catch(err => res.json({
             status: "Server Unavailable"
         }));
@@ -13,37 +13,35 @@ export const getOne = (req, res) => {
     productDAO.getOne(barcode)
         .then(product => {
             !product ? res.json({
-                 message: "Product not found" 
-                }) : res.render('../src/views/edit', {product});
+                message: "Product not found" 
+            }) : res.json({ product });
         })
         .catch(err => res.json({
             status: "Server Unavailable"
         }));
 };
 
-
 export const insertOne = (req, res) => {
     productDAO.insertOne(req.body)
-        .then(result => res.redirect('/'))
+        .then(result => res.json({ status: 'Product Insert' }))
         .catch(err => {
             console.error(err);
             res.status(500).json({ status: 'Error en el servidor' });
         });
-  };
+};
 
-
-  export const updateOne = (req, res) => {
+export const updateOne = (req, res) => {
     productDAO
       .updateOne(req.params.barcode, req.body)
       .then((product) => {
         !product
-          ? res.console({
-              message: "product not found",
+          ? res.json({
+              message: "Product not found",
             })
-          : res.redirect("/");
+          : res.json({ status: 'Product Update Success' });
       })
-      .catch((err) => res.console({ status: "Server unavaliable"}));
-  };
+      .catch((err) => res.json({ status: "Server Unavailable" }));
+};
 
 export const deleteOne = (req, res) => {
     productDAO
@@ -51,9 +49,9 @@ export const deleteOne = (req, res) => {
         .then((product) => {
             !product
                 ? res.json({
-                    message: "product not found"
+                    message: "Product not found"
                 })
-            : res.redirect("/");
+                : res.json({ status: 'Product Eliminated' });
         })
-    .catch(err=>res.json({status: "Servidor no responde"}));
-}
+        .catch(err => res.json({ status: "Server Unavailable" }));
+};
