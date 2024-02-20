@@ -16,7 +16,7 @@ app.set('view engine','ejs');
 app.use(express.json());//leer json
 app.use(express.urlencoded({extended: false}));//para recibir datos del formulario
 app.use(morgan('dev'));
-app.use('/api/products', productsRouter);
+app.use('/', productsRouter);
 
 
 export default app;
