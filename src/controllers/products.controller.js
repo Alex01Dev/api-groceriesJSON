@@ -42,7 +42,7 @@ export const insertOne = (req, res) => {
             })
           : res.redirect("/");
       })
-      .catch((err) => res.console({ status: "Server unavaliable=/"}));
+      .catch((err) => res.console({ status: "Server unavaliable"}));
   };
 
 export const deleteOne = (req, res) => {
