@@ -24,7 +24,7 @@ export const getOne = (req, res) => {
 
 export const insertOne = (req, res) => {
     productDAO.insertOne(req.body)
-        .then(result => res.redirect('/api/products'))
+        .then(result => res.redirect('/'))
         .catch(err => {
             console.error(err);
             res.status(500).json({ status: 'Error en el servidor' });
@@ -40,7 +40,7 @@ export const insertOne = (req, res) => {
           ? res.console({
               message: "product not found",
             })
-          : res.redirect("/api/products/");
+          : res.redirect("/");
       })
       .catch((err) => res.console({ status: "Server unavaliable=/"}));
   };
@@ -53,7 +53,7 @@ export const deleteOne = (req, res) => {
                 ? res.json({
                     message: "product not found"
                 })
-            : res.redirect("/api/products/");
+            : res.redirect("/");
         })
     .catch(err=>res.json({status: "Servidor no responde"}));
 }
