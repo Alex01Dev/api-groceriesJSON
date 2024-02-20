@@ -33,7 +33,7 @@ export const insertOne = (req, res) => {
 
 
   export const updateOne = (req, res) => {
-    productDao
+    productDAO
       .updateOne(req.params.barcode, req.body)
       .then((product) => {
         !product
